@@ -4,8 +4,9 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LuckyController
+class LuckyController extends Controller
 {
     /**
      * @Route("/lucky/number")
@@ -47,8 +48,26 @@ class LuckyController
         }
         $numbersList = implode(', ', $numbers);
 
+//        return $this->render(
+//            'lucky/number.html.twig',
+//            array('luckyNumberList' => $numbersList)
+//        );
+
+//        $html = $this->container->get('templating')->render(
+//            'lucky/number.html.twig',
+//            array('luckyNumberList' => $numbersList)
+//        );
+//
+//        return new Response($html);
+
         return new Response(
             '<html><body>Lucky numbers: '.$numbersList.'</body></html>'
         );
     }
+
+    public function helloAction()
+    {
+        return new Response('Hello world!');
+    }
+
 }
