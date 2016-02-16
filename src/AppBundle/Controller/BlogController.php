@@ -12,5 +12,6 @@ class BlogController extends Controller
     public function showAction($slug)
     {
         echo $slug;
+        return new Response('<html><body>Hello!</body></html>');
     }
 }

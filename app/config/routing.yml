@@ -7,9 +7,9 @@ lucky_number:
 hello0:
     path:     /hello
     defaults: { _controller: AppBundle:Lucky:hello}
-#hello:
-#    path:      /hello/{name}
-#    defaults:  { _controller: AppBundle:Hello:index }
+hello2:
+    path:      /hello/{name}
+    defaults:  { _controller: AppBundle:Hello:index }
 hello:
     path:      /hello/{firstName}/{lastName}
     defaults:  { _controller: AppBundle:Hello:index }
