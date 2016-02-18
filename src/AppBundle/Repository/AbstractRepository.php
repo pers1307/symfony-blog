@@ -1,6 +1,6 @@
 <?php
 /**
- * Authors.php
+ * AbstractRepository.php
  *
  * @author      Pereskokov Yurii
  * @copyright   2016 Pereskokov Yurii
@@ -8,14 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-namespace pers1307\blog\entity;
+namespace pers1307\blog\repository;
 
-use KoKoKo\assert\Assert;
-
-class Authors
+class AbstractRepository
 {
-    /** @var int */
-    private $id;
-
 
 }

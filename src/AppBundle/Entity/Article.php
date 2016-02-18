@@ -12,7 +12,7 @@ namespace pers1307\blog\entity;
 
 use KoKoKo\assert\Assert;
 
-class Article
+class Article extends AbstractEntity
 {
     /** @var int */
     private $id;
@@ -31,35 +31,6 @@ class Article
 
     /** @var int */
     private $logoId;
-
-    /**
-     * @param string $property
-     * @param mixed $value
-     *
-     * @return mixed
-     */
-    function __set($property, $value)
-    {
-        $method = 'set' . $property;
-
-        if (method_exists($this, $method)) {
-            return $this->$method($value);
-        }
-    }
-
-    /**
-     * @param string $property
-     *
-     * @return mixed
-     */
-    function __get($property)
-    {
-        $method = 'get' . $property;
-
-        if (method_exists($this, $method)) {
-            return $this->$method();
-        }
-    }
 
     /**
      * @param int $id
