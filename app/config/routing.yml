@@ -16,3 +16,6 @@ hello:
 blog_show:
     path:      /blog/{slug}
     defaults:  { _controller: AppBundle:Blog:show }
+blog_index:
+    path:      /blog
+    defaults:  { _controller: AppBundle:Blog:index }

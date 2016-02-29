@@ -61,10 +61,9 @@ class Article extends AbstractEntity
      * @return Article
      * @throws \InvalidArgumentException
      */
-    public function setCreatedAt($date)
+    public function setCreatedAt(\DateTimeImmutable $date)
     {
-        // todo: сделать проверку на входной тип
-        //Assert::assert($date, 'date')->notEmpty()->string();
+        Assert::assert($date, 'date')->notEmpty();
 
         $this->createdAt = $date;
 

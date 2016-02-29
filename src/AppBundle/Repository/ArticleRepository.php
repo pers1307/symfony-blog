@@ -1,6 +1,6 @@
 <?php
 /**
- * AbstractRepository.php
+ * ArticleRepository.php
  *
  * @author      Pereskokov Yurii
  * @copyright   2016 Pereskokov Yurii
@@ -10,15 +10,23 @@
 
 namespace pers1307\blog\repository;
 
-abstract class AbstractRepository
+use KoKoKo\assert\Assert;
+
+class ArticleRepository extends AbstractRepository
 {
     /**
      * @return array
      */
-    abstract public function findAll();
+    public function findAll()
+    {
+
+    }
 
     /**
      * @return array
      */
-    abstract public function insert();
+    public function insert()
+    {
+
+    }
 }

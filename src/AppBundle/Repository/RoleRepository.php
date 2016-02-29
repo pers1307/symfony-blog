@@ -1,6 +1,6 @@
 <?php
 /**
- * AbstractRepository.php
+ * RoleRepository.php
  *
  * @author      Pereskokov Yurii
  * @copyright   2016 Pereskokov Yurii
@@ -10,15 +10,21 @@
 
 namespace pers1307\blog\repository;
 
-abstract class AbstractRepository
+class RoleRepository extends AbstractRepository
 {
     /**
      * @return array
      */
-    abstract public function findAll();
+    public function findAll()
+    {
+
+    }
 
     /**
      * @return array
      */
-    abstract public function insert();
+    public function insert()
+    {
+
+    }
 }
