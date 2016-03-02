@@ -1,9 +1,9 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-blog_show:
-    path:      /blog/{slug}
-    defaults:  { _controller: AppBundle:Blog:show }
-blog_index:
+hello:
+    path:      /hello/{name}
+    defaults:  { _controller: AppBundle:Hello:index }
+blog:
     path:      /blog
     defaults:  { _controller: AppBundle:Blog:index }

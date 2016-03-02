@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle;
+namespace pers1307\blog\AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -1,28 +1,18 @@
 <?php
-namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+namespace pers1307\blog\AppBundle\Controller;
+
 use Symfony\Component\HttpFoundation\Response;
 
-class BlogController extends Controller
+class BlogController
 {
     /**
-     * @Route("/blog", name="blog_index")
+     * Запускаем сервер в симфони
+     * http://127.0.0.1:8000/app_dev.php/blog
+     * @return Response
      */
     public function indexAction()
     {
-        return new Response('<html><body>Hello!</body></html>');
-    }
-
-
-    /**
-     * @Route("/blog/{slug}", name="blog_show")
-     */
-    public function showAction($slug)
-    {
-        echo $slug;
         return new Response('<html><body>Hello!</body></html>');
     }
 }
