@@ -1,0 +1,7 @@
+[Fri Mar 11 06:16:24.891899 2016] [authz_core:error] [pid 7352:tid 2084] [client 127.0.0.1:54205] AH01630: client denied by server configuration: D:/xampp/htdocs/Symfony/app/
+[Fri Mar 11 06:16:24.897900 2016] [authz_core:error] [pid 7352:tid 2084] [client 127.0.0.1:54205] AH01630: client denied by server configuration: D:/xampp/htdocs/Symfony/src/
+127.0.0.1 - - [11/Mar/2016:06:16:24 +0500] "GET / HTTP/1.1" 200 3390
+127.0.0.1 - - [11/Mar/2016:06:16:25 +0500] "GET /icons/unknown.gif HTTP/1.1" 200 245
+127.0.0.1 - - [11/Mar/2016:06:16:25 +0500] "GET /icons/folder.gif HTTP/1.1" 200 225
+127.0.0.1 - - [11/Mar/2016:06:16:25 +0500] "GET /icons/blank.gif HTTP/1.1" 200 148
+127.0.0.1 - - [11/Mar/2016:06:16:25 +0500] "GET /favicon.ico HTTP/1.1" 404 1220

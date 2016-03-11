@@ -8,10 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-require 'src/AppBundle/Entity/AbstractEntity.php';
 require 'src/AppBundle/Entity/User.php';
 
-use pers1307\blog\entity\User;
+use pers1307\blog\AppBundle\Entity\User;
 
 class UserTest extends \PHPUnit_Framework_TestCase
 {

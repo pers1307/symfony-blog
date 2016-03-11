@@ -8,10 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-require 'src/AppBundle/Entity/AbstractEntity.php';
 require 'src/AppBundle/Entity/Article.php';
 
-use pers1307\blog\entity\Article;
+use pers1307\blog\AppBundle\Entity\Article;
 
 class ArticleTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,45 +28,6 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         unset($this->article);
         $this->article = null;
-    }
-
-    public function testSetGetId()
-    {
-        $id = 10;
-        $this->article->setId($id);
-        $result = $this->article->getId();
-        $this->assertEquals($id, $result);
-    }
-
-    public function testSetEmptyId()
-    {
-        try {
-            $this->article->setId(false);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetNegativeId()
-    {
-        try {
-            $this->article->setId(-10);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetDoubleId()
-    {
-        try {
-            $this->article->setId(10.66);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
     }
 
 //    /**

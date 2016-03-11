@@ -8,10 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-require 'src/AppBundle/Entity/AbstractEntity.php';
 require 'src/AppBundle/Entity/Role.php';
 
-use pers1307\blog\entity\Role;
+use pers1307\blog\AppBundle\Entity\Role;
 
 class RoleTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,45 +28,6 @@ class RoleTest extends \PHPUnit_Framework_TestCase
     {
         unset($this->role);
         $this->role = null;
-    }
-
-    public function testSetGetId()
-    {
-        $id = 10;
-        $this->role->setId($id);
-        $result = $this->role->getId();
-        $this->assertEquals($id, $result);
-    }
-
-    public function testSetEmptyId()
-    {
-        try {
-            $this->role->setId(false);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetNegativeId()
-    {
-        try {
-            $this->role->setId(-10);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetDoubleId()
-    {
-        try {
-            $this->role->setId(10.66);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
     }
 
     public function testSetGetName()

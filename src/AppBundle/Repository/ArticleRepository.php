@@ -8,11 +8,11 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-namespace pers1307\blog\repository;
+namespace pers1307\blog\AppBundle\Repository;
 
 use KoKoKo\assert\Assert;
 
-class ArticleRepository extends AbstractRepository
+class ArticleRepository
 {
     /**
      * @return array

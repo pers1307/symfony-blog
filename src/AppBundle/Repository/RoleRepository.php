@@ -8,9 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-namespace pers1307\blog\repository;
+namespace pers1307\blog\AppBundle\Repository;
 
-class RoleRepository extends AbstractRepository
+class RoleRepository
 {
     /**
      * @return array

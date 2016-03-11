@@ -8,10 +8,9 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-require 'src/AppBundle/Entity/AbstractEntity.php';
 require 'src/AppBundle/Entity/Author.php';
 
-use pers1307\blog\entity\Author;
+use pers1307\blog\AppBundle\Entity\Author;
 
 class AuthorTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,45 +28,6 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
     {
         unset($this->author);
         $this->author = null;
-    }
-
-    public function testSetGetId()
-    {
-        $id = 10;
-        $this->author->setId($id);
-        $result = $this->author->getId();
-        $this->assertEquals($id, $result);
-    }
-
-    public function testSetEmptyId()
-    {
-        try {
-            $this->author->setId(false);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetNegativeId()
-    {
-        try {
-            $this->author->setId(-10);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetDoubleId()
-    {
-        try {
-            $this->author->setId(10.66);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
     }
 
     public function testSetGetName()

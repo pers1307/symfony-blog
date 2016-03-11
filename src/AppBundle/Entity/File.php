@@ -8,32 +8,17 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-namespace pers1307\blog\entity;
+namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
 
-class File extends AbstractEntity
+class File
 {
     /** @var int */
     private $id;
 
     /** @var string */
     private $path;
-
-    /**
-     * @param int $id
-     *
-     * @return Article
-     * @throws \InvalidArgumentException
-     */
-    public function setId($id)
-    {
-        Assert::assert($id, 'id')->notEmpty()->positive()->int();
-
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return int

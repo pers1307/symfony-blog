@@ -8,11 +8,11 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-namespace pers1307\blog\entity;
+namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
 
-class Article extends AbstractEntity
+class Article
 {
     /** @var int */
     private $id;
@@ -31,21 +31,6 @@ class Article extends AbstractEntity
 
     /** @var int */
     private $logoId;
-
-    /**
-     * @param int $id
-     *
-     * @return Article
-     * @throws \InvalidArgumentException
-     */
-    public function setId($id)
-    {
-        Assert::assert($id, 'id')->notEmpty()->positive()->int();
-
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return int
