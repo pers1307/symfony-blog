@@ -6,6 +6,8 @@
  * @copyright   2016 Pereskokov Yurii
  * @license     The MIT License (MIT) http://opensource.org/licenses/mit-license.php
  * @link        https://github.com/pers1307/symfony-blog
+ *
+ * php phpunit.phar tests/AppBundle/Entity/
  */
 
 require 'src/AppBundle/Entity/Article.php';
@@ -122,9 +124,6 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * Не понятно пока, почему тест не проходит
-     */
     public function testSetGetContent()
     {
         $content = 'test';

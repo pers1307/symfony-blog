@@ -3,6 +3,7 @@
 namespace pers1307\blog\AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use pers1307\blog\AppBundle\Entity\Article;
 
 class BlogController
 {
@@ -17,6 +18,16 @@ class BlogController
      */
     public function indexAction()
     {
-        return new Response('<html><body>Hello!</body></html>');
+        $content = 'test';
+        $article = new Article();
+
+        $article->setContent($content);
+
+        // Тут какая то магия происходит, значение пропадает.
+        $result = $article->getContent();
+
+        //$result = 'test';
+
+        return new Response('<html><body>' . $result . '</body></html>');
     }
 }

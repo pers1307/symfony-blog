@@ -30,45 +30,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->user = null;
     }
 
-    public function testSetGetId()
-    {
-        $id = 10;
-        $this->user->setId($id);
-        $result = $this->user->getId();
-        $this->assertEquals($id, $result);
-    }
-
-    public function testSetEmptyId()
-    {
-        try {
-            $this->user->setId(false);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetNegativeId()
-    {
-        try {
-            $this->user->setId(-10);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-
-        $this->fail('Something went wrong');
-    }
-
-    public function testSetDoubleId()
-    {
-        try {
-            $this->user->setId(10.66);
-        } catch(InvalidArgumentException $e) {
-            return;
-        }
-    }
-
     public function testSetGetRoleId()
     {
         $roleId = 10;

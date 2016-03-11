@@ -119,7 +119,7 @@ class Article
     {
         Assert::assert($content, 'content')->notEmpty()->string();
 
-        $this->$content = $content;
+        $this->content = $content;
 
         return $this;
     }
