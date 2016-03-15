@@ -10,21 +10,9 @@
 
 namespace pers1307\blog\AppBundle\Repository;
 
-class RoleRepository
+use KoKoKo\assert\Assert;
+use Doctrine\ORM\EntityRepository;
+
+class RoleRepository extends EntityRepository
 {
-    /**
-     * @return array
-     */
-    public function findAll()
-    {
-
-    }
-
-    /**
-     * @return array
-     */
-    public function insert()
-    {
-
-    }
 }

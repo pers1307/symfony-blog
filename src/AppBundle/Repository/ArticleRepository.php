@@ -11,22 +11,8 @@
 namespace pers1307\blog\AppBundle\Repository;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\EntityRepository;
 
-class ArticleRepository
+class ArticleRepository extends EntityRepository
 {
-    /**
-     * @return array
-     */
-    public function findAll()
-    {
-
-    }
-
-    /**
-     * @return array
-     */
-    public function insert()
-    {
-
-    }
 }

@@ -12,18 +12,38 @@ namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
 
+/**
+ * @ORM\Table(
+ *      name="users"
+ * )
+ * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\UserRepository")
+ */
 class User
 {
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
     private $id;
 
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="id", type="integer")
+     */
     private $roleId;
 
-    /** @var string */
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
     private $login;
 
-    /** @var string */
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
     private $password;
 
     /**

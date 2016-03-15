@@ -10,21 +10,9 @@
 
 namespace pers1307\blog\AppBundle\Repository;
 
-class UserRepository
+use KoKoKo\assert\Assert;
+use Doctrine\ORM\EntityRepository;
+
+class UserRepository extends EntityRepository
 {
-    /**
-     * @return array
-     */
-    public function findAll()
-    {
-
-    }
-
-    /**
-     * @return array
-     */
-    public function insert()
-    {
-
-    }
 }

@@ -12,12 +12,26 @@ namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
 
+/**
+ * @ORM\Table(
+ *      name="files"
+ * )
+ * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\FileRepository")
+ */
 class File
 {
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
     private $id;
 
-    /** @var string */
+    /**
+     * @var string
+     * @ORM\Column(type="text")
+     */
     private $path;
 
     /**

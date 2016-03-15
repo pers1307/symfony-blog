@@ -11,25 +11,58 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Table(
+ *      name="articles",
+ *      indexes={
+ *          @ORM\Index(
+ *              name="createdAt",
+ *              columns={"createdAt"}
+ *          )
+ *     }
+ * )
+ * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\ArticleRepository")
+ */
 class Article
 {
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
     private $id;
 
-    /** @var \DateTimeImmutable */
+    /**
+     * @var \DateTimeImmutable
+     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     */
     private $createdAt;
 
-    /** @var string */
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
     private $name;
 
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="authorId", type="integer")
+     */
     private $authorId;
 
-    /** @var string */
+    /**
+     * @var string
+     * @ORM\Column(type="text")
+     */
     private $content;
 
-    /** @var int */
+    /**
+     * @var int
+     * @ORM\Column(name="logoId", type="integer")
+     */
     private $logoId;
 
     /**

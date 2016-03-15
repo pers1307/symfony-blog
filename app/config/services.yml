@@ -8,10 +8,28 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-account_repository:
-        class: pers1307\
-
-        MY\AppBundle\Repository\AccountRepository
+article_repository:
+        class: pers1307\blog\AppBundle\Repository\ArticleRepository
         factory: ["@doctrine", getRepository]
         arguments:
-            - MY\AppBundle\Entity\Account
+            - pers1307\blog\AppBundle\Entity\Article
+author_repository:
+        class: pers1307\blog\AppBundle\Repository\AuthorRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - pers1307\blog\AppBundle\Entity\Author
+file_repository:
+        class: pers1307\blog\AppBundle\Repository\FileRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - pers1307\blog\AppBundle\Entity\File
+role_repository:
+        class: pers1307\blog\AppBundle\Repository\RoleRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - pers1307\blog\AppBundle\Entity\Role
+user_repository:
+        class: pers1307\blog\AppBundle\Repository\UserRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - pers1307\blog\AppBundle\Entity\User
