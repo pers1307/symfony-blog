@@ -23,10 +23,7 @@ class BlogController
 
         $article->setContent($content);
 
-        // Тут какая то магия происходит, значение пропадает.
         $result = $article->getContent();
-
-        //$result = 'test';
 
         return new Response('<html><body>' . $result . '</body></html>');
     }
