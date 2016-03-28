@@ -1,47 +1,26 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
-#parameters:
-#    parameter_name: value
-
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  article_repository:
+          class: pers1307\blog\AppBundle\Repository\ArticleRepository
+          factory: ["@doctrine", getRepository]
+          arguments: [pers1307\blog\AppBundle\Entity\Article]
 
-#app.repository.article:
-#        class: pers1307\blog\AppBundle\Repository\ArticleRepository
-#        factory: ["@doctrine.orm.default_entity_manager", getRepository]
-#        arguments: [pers1307\blog\AppBundle\Entity\Article]
-
-#app.repository.article:
-#pers1307.blog.repository.article:
-#        class: AppBundle\Repository\ArticleRepository
-#        factory: ["@doctrine.orm.default_entity_manager", getRepository]
-#        arguments: [AppBundle\Entity\Article]
-
-
-article_repository:
-        class: pers1307\blog\AppBundle\Repository\ArticleRepository
-        factory: ["@doctrine", getRepository]
-        arguments: [pers1307\blog\AppBundle\Entity\Article]
-
-#author_repository:
-#        class: pers1307\blog\AppBundle\Repository\AuthorRepository
-#        factory: ["@doctrine", getRepository]
-#        arguments:
-#            - pers1307\blog\AppBundle\Entity\Author
-#file_repository:
-#        class: pers1307\blog\AppBundle\Repository\FileRepository
-#        factory: ["@doctrine", getRepository]
-#        arguments:
-#            - pers1307\blog\AppBundle\Entity\File
-#role_repository:
-#        class: pers1307\blog\AppBundle\Repository\RoleRepository
-#        factory: ["@doctrine", getRepository]
-#        arguments:
-#            - pers1307\blog\AppBundle\Entity\Role
-#user_repository:
-#        class: pers1307\blog\AppBundle\Repository\UserRepository
-#        factory: ["@doctrine", getRepository]
-#        arguments:
-#            - pers1307\blog\AppBundle\Entity\User
+  author_repository:
+          class: pers1307\blog\AppBundle\Repository\AuthorRepository
+          factory: ["@doctrine", getRepository]
+          arguments:
+              - pers1307\blog\AppBundle\Entity\Author
+  file_repository:
+          class: pers1307\blog\AppBundle\Repository\FileRepository
+          factory: ["@doctrine", getRepository]
+          arguments:
+              - pers1307\blog\AppBundle\Entity\File
+  role_repository:
+          class: pers1307\blog\AppBundle\Repository\RoleRepository
+          factory: ["@doctrine", getRepository]
+          arguments:
+              - pers1307\blog\AppBundle\Entity\Role
+  user_repository:
+          class: pers1307\blog\AppBundle\Repository\UserRepository
+          factory: ["@doctrine", getRepository]
+          arguments:
+              - pers1307\blog\AppBundle\Entity\User

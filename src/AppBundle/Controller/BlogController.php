@@ -8,11 +8,7 @@ use pers1307\blog\AppBundle\Entity\Article;
 class BlogController
 {
     /**
-     * Запускаем сервер в симфони
-     * php bin/console server:run
-     * php bin/console server:stop
      *
-     * http://127.0.0.1:8000/app_dev.php/blog
      *
      * @return Response
      */

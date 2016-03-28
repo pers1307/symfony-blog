@@ -8,8 +8,6 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
-require 'src/AppBundle/Entity/Author.php';
-
 use pers1307\blog\AppBundle\Entity\Author;
 
 class AuthorTest extends \PHPUnit_Framework_TestCase

@@ -10,7 +10,6 @@
 
 namespace pers1307\blog\AppBundle\Repository;
 
-use KoKoKo\assert\Assert;
 use Doctrine\ORM\EntityRepository;
 
 class AuthorRepository extends EntityRepository

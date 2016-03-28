@@ -10,8 +10,6 @@
  * php phpunit.phar tests/AppBundle/Entity/
  */
 
-require 'src/AppBundle/Entity/Article.php';
-
 use pers1307\blog\AppBundle\Entity\Article;
 
 class ArticleTest extends \PHPUnit_Framework_TestCase
