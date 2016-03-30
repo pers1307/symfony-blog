@@ -4,6 +4,7 @@ namespace pers1307\blog\AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use pers1307\blog\AppBundle\Entity\Article;
+use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController
 {

@@ -30,28 +30,25 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
         $this->article = null;
     }
 
-//    /**
-//     * Не понятно, что делать с этими тестами, пишет, что не может найти класс DateTimeImmutable
-//     */
-//    public function testSetGetCreatedAt()
-//    {
-//        $date = \DateTimeImmutable::createFromFormat('Y-m-d', '2015-01-25');
-//
-//        $this->article->setCreatedAt($date);
-//        $result = $this->article->getCreatedAt();
-//        $this->assertEquals($date, $result);
-//    }
+    public function testSetGetCreatedAt()
+    {
+        $date = \DateTimeImmutable::createFromFormat('Y-m-d', '2015-01-25');
 
-//    public function testSetEmptyCreatedAt()
-//    {
-//        try {
-//            $this->article->setCreatedAt(false);
-//        } catch(InvalidArgumentException $e) {
-//            return;
-//        }
-//
-//        $this->fail('Something went wrong');
-//    }
+        $this->article->setCreatedAt($date);
+        $result = $this->article->getCreatedAt();
+        $this->assertEquals($date, $result);
+    }
+
+    public function testSetEmptyCreatedAt()
+    {
+        try {
+            $this->article->setCreatedAt(false);
+        } catch(Exception $e) {
+            return;
+        }
+
+        $this->fail('Something went wrong');
+    }
 
     public function testSetGetName()
     {

@@ -74,15 +74,13 @@ class Article
     }
 
     /**
-     * @param \DateTime $date
+     * @param \DateTimeImmutable $date
      *
      * @return Article
      * @throws \InvalidArgumentException
      */
-    public function setCreatedAt(\DateTime $date)
+    public function setCreatedAt(\DateTimeImmutable $date)
     {
-        Assert::assert($date, 'date')->notEmpty();
-
         $this->createdAt = $date;
 
         return $this;
