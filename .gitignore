@@ -17,4 +17,4 @@
 .idea
 phpunit.phar
 composer.phar
-/logs/
+log

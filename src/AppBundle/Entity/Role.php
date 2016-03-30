@@ -30,7 +30,7 @@ class Role
 
     /**
      * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=false)
      */
     private $name;
 

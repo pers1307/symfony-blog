@@ -8,7 +8,7 @@ use pers1307\blog\AppBundle\Entity\Article;
 class BlogController
 {
     /**
-     *
+     * @Route("/blog", name="blog_index")
      *
      * @return Response
      */

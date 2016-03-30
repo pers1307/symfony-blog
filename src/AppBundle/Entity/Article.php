@@ -36,32 +36,32 @@ class Article
     private $id;
 
     /**
-     * @var \DateTimeImmutable
+     * @var \DateTime
      * @ORM\Column(name="createdAt", type="datetime", nullable=false)
      */
     private $createdAt;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=false)
      */
     private $name;
 
     /**
      * @var int
-     * @ORM\Column(name="authorId", type="integer")
+     * @ORM\Column(name="authorId", type="integer", nullable=false)
      */
     private $authorId;
 
     /**
      * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=false)
      */
     private $content;
 
     /**
      * @var int
-     * @ORM\Column(name="logoId", type="integer")
+     * @ORM\Column(name="logoId", type="integer", nullable=false)
      */
     private $logoId;
 
@@ -74,12 +74,12 @@ class Article
     }
 
     /**
-     * @param \DateTimeImmutable $date
+     * @param \DateTime $date
      *
      * @return Article
      * @throws \InvalidArgumentException
      */
-    public function setCreatedAt(\DateTimeImmutable $date)
+    public function setCreatedAt(\DateTime $date)
     {
         Assert::assert($date, 'date')->notEmpty();
 
@@ -89,7 +89,7 @@ class Article
     }
 
     /**
-     * @return \DateTimeImmutable
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
