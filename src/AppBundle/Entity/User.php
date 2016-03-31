@@ -11,11 +11,11 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Annotation;
 
 /**
- * @ORM\Table(
- *      name="users"
- * )
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\UserRepository")
  */
 class User
@@ -30,7 +30,7 @@ class User
 
     /**
      * @var int
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="role_id", type="integer", nullable=false)
      */
     private $roleId;
 

@@ -11,11 +11,12 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Annotation;
 
 /**
- * @ORM\Table(
- *      name="roles"
- * )
+ * @ORM\Table(name="role")
+ *
  * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\RoleRepository")
  */
 class Role

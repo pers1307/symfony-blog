@@ -11,11 +11,12 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Annotation;
 
 /**
- * @ORM\Table(
- *      name="files"
- * )
+ * @ORM\Table(name="file")
+ *
  * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\FileRepository")
  */
 class File

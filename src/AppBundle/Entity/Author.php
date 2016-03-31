@@ -11,11 +11,12 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Annotation;
 
 /**
- * @ORM\Table(
- *      name="authors"
- * )
+ * @@ORM\Table(name="author")
+ *
  * @ORM\Entity(repositoryClass="pers1307\blog\AppBundle\Repository\AuthorRepository")
  */
 class Author
