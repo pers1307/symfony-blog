@@ -7,13 +7,16 @@
 
 namespace pers1307\blog\AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HelloController
+class HelloController extends Controller
 {
     /**
-     * @Route("/hello/{name}", name="hello")
+     * @Route("/hello/{name}", name="hello", requirements={"name" : "\D+"})
+     * @Method({"GET", "HEAD"})
      *
      * @param $name
      * @return Response

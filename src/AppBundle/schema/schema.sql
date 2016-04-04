@@ -1,42 +1,40 @@
-SET FOREIGN_KEY_CHECKS=0;
-
-DROP TABLE IF EXISTS `articles`;
-CREATE TABLE `articles` (
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `createAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(50) NOT NULL,
   `authorId` int(10) unsigned NOT NULL,
   `content` text NOT NULL,
   `logoId` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`,`authorId`,`createAt`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  PRIMARY KEY (`id`,`authorId`,`createdAt`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
-DROP TABLE IF EXISTS `authors`;
-CREATE TABLE `authors` (
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `files`;
-CREATE TABLE `files` (
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE `file` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `path` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE `roles` (
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `roleId` int(10) NOT NULL DEFAULT '0',
   `login` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`,`roleId`,`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
