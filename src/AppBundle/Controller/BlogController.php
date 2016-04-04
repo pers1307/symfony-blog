@@ -29,7 +29,7 @@ class BlogController extends Controller
         $articles         = $articleReposiory->findAll();
 
         print_r($articles);
-
+        
         return new Response('<html><body>' . $result . '</body></html>');
     }
 }
