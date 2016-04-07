@@ -10,6 +10,8 @@
  * php phpunit.phar tests/AppBundle/Entity/
  */
 
+namespace pers1307\blog\tests\AppBundle\Entity;
+
 use pers1307\blog\AppBundle\Entity\Article;
 
 class ArticleTest extends \PHPUnit_Framework_TestCase
@@ -43,7 +45,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setCreatedAt(false);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             return;
         }
 
@@ -62,7 +64,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setName(false);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -73,7 +75,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setName(10);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -92,7 +94,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setAuthorId(false);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -103,7 +105,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setAuthorId(-10);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -114,7 +116,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setAuthorId(10.66);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
     }
@@ -131,7 +133,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setContent(false);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -142,7 +144,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setContent(10.66);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
     }
@@ -159,7 +161,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setLogoId(false);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -170,7 +172,7 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setLogoId(-10);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
 
@@ -181,8 +183,23 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->article->setlogoId(10.66);
-        } catch(InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return;
         }
+    }
+
+    public function testWriteReadDataBase()
+    {
+        $kernel = new KernelTestCase();
+        $r = $kernel->getKernel();
+
+        $r->getDoctrine();
+
+        return;
+
+        //$d = $kernel->getContainer();
+
+        //$d->
+
     }
 }

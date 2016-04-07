@@ -8,6 +8,8 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
+namespace pers1307\blog\tests\AppBundle\Entity;
+
 use pers1307\blog\AppBundle\Entity\User;
 
 class UserTest extends \PHPUnit_Framework_TestCase
@@ -40,7 +42,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->user->setRoleId(false);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 
@@ -51,7 +53,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->user->setRoleId(-10);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 
@@ -62,7 +64,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->user->setRoleId(10.66);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
     }
@@ -79,7 +81,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->user->setLogin(false);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 
@@ -90,7 +92,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->user->setLogin(10);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 

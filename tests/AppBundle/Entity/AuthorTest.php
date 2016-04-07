@@ -8,6 +8,8 @@
  * @link        https://github.com/pers1307/symfony-blog
  */
 
+namespace pers1307\blog\tests\AppBundle\Entity;
+
 use pers1307\blog\AppBundle\Entity\Author;
 
 class AuthorTest extends \PHPUnit_Framework_TestCase
@@ -40,7 +42,7 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->author->setName(false);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 
@@ -51,7 +53,7 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $this->author->setName(10);
-        } catch(InvalidArgumentException $e) {
+        } catch(\InvalidArgumentException $e) {
             return;
         }
 

@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use pers1307\blog\AppBundle\Entity\Article;
 use Symfony\Component\Routing\Annotation\Route;
 
+use pers1307\blog\tests\AppBundle\Entity\KernelTestCase;
+
 class BlogController extends Controller
 {
     /**
@@ -25,11 +27,16 @@ class BlogController extends Controller
 
         $result = $article->getContent();
 
-        $articleReposiory = $this->get('article_repository');
-        $articles         = $articleReposiory->findAll();
+        //$articleReposiory = $this->get('article_repository');
+        //$articles         = $articleReposiory->findAll();
 
-        print_r($articles);
-        
+        //print_r($articles);
+
+//        $kernel = new KernelTestCase();
+//
+//        $t = $kernel->getKernel();
+//        $r = $kernel->getContainer();
+
         return new Response('<html><body>' . $result . '</body></html>');
     }
 }
