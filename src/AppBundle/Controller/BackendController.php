@@ -51,4 +51,37 @@ class BackendController extends Controller
 
         return $this->render('backend/backend.html.twig', []);
     }
+
+
+    /**
+     * @Route("/new", name="backend_newArticle")
+     * @Method({"GET", "HEAD"})
+     *
+     * @return Response
+     */
+    public function newArticleAction()
+    {
+        //$content = 'test';
+        //$article = new Article();
+
+        //$article->setContent($content);
+
+        //$result = $article->getContent();
+
+        //$articleReposiory = $this->get('article_repository');
+        //$articles         = $articleReposiory->findAll();
+
+        //print_r($articles);
+
+//        $kernel = new KernelTestCase();
+//
+//        $t = $kernel->getKernel();
+//        $r = $kernel->getContainer();
+
+        //return new Response('<html><body>' . $result . '</body></html>');
+
+        //return new Response('<html><body>Форма авторизации</body></html>');
+
+        return $this->render('backend/new.html.twig', []);
+    }
 }

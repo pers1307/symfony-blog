@@ -51,4 +51,9 @@ class AuthorizationController extends Controller
 
         return $this->render('backend/index.html.twig', []);
     }
+
+
+    /**
+     * Сделать методы signIn и signOut
+     */
 }
