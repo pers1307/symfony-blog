@@ -12,6 +12,9 @@ class BlogController
      * php bin/console server:run
      * php bin/console server:stop
      *
+     * php app/console server:run 127.0.0.1:9000
+     * http://localhost:9000/
+     *
      * http://127.0.0.1:8000/app_dev.php/blog
      *
      * @return Response

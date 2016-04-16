@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BackendController extends Controller
 {
     /**
-     * @Route("/backend", name="authorization_index")
+     * @Route("/backend", name="backend_index")
      * @Method({"GET", "HEAD"})
      *
      * @return Response
