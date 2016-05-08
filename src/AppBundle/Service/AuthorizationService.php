@@ -57,24 +57,6 @@ class AuthorizationService
     }
 
     /**
-     * @param string $login
-     * @param string $password
-     *
-     * @throw \InvalidArgumentException
-     * @return bool
-     */
-    public function signIn($login, $password)
-    {
-        Assert::assert($login, 'login')->notEmpty()->string();
-        Assert::assert($password, 'password')->notEmpty()->string();
-
-        //$users = new UserRepository();
-        //$user = $users->findByCreditionals($login);
-
-        //return !is_null($user); //&& \password_verify($password, $user->getPassword());
-    }
-
-    /**
      * @param int $userId
      *
      * @throws \InvalidArgumentException
@@ -83,7 +65,7 @@ class AuthorizationService
     {
         Assert::assert($userId, 'userId')->notEmpty()->int();
 
-        //self::$session->set('userId', $userId);
+        self::$session->set('userId', $userId);
     }
 
     /**
@@ -91,12 +73,12 @@ class AuthorizationService
      */
     public function getCurrentUserId()
     {
-        //return self::$session->get('userId');
+        return self::$session->get('userId');
     }
 
     public function signOut()
     {
-        //self::$session->remove('userId');
+        self::$session->remove('userId');
     }
 
     /**

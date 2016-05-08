@@ -10,15 +10,20 @@
 
             <p class="login-box-msg">Авторизируйтесь для начала работы</p>
 
-            {#<div class="form-group has-feedback has-error">#}
+            {% if error is empty %}
+            {% else %}
+                <p style="color: #9f191f" class="login-box-msg">{{ error }}</p>
+            {% endif %}
 
             {{ form_start(form, {'action': path('authorization_index'), 'method': 'POST'}) }}
                 <div class="form-group has-feedback">
                     {{ form_widget(form.login, {'attr': {'class': 'form-control', 'placeholder' : 'Логин'}, 'title': ''}) }}
+                    {{ form_errors(form.login) }}
                 </div>
 
                 <div class="form-group has-feedback">
                     {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder' : 'Пароль'}, 'title': ''}) }}
+                    {{ form_errors(form.password) }}
                 </div>
 
                 <div class="row">

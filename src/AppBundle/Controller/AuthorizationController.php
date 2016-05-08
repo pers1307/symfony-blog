@@ -19,6 +19,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use KoKoKo\assert\Assert;
 
 class AuthorizationController extends Controller
 {
@@ -26,24 +28,27 @@ class AuthorizationController extends Controller
     protected $autorizationService;
 
     /**
-     * Метод вызывается перез action
+     * Метод вызывается перед action
      */
     protected function beforeAction()
     {
         $this->autorizationService = AuthorizationService::getInstance();
-
-        // Проверка на авторизацию
     }
 
     /**
      * @Route("/login", name="authorization_index")
-     * @Method({"GET", "HEAD"})
+     * @Method({"GET", "HEAD", "POST"})
      *
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $this->beforeAction();
+        $userId = $this->autorizationService->getCurrentUserId();
+
+        if (!empty($userId)) {
+            return $this->redirect('/backend');
+        }
 
         $user = new User();
 
@@ -53,30 +58,60 @@ class AuthorizationController extends Controller
             ->add('save', SubmitType::class, array('label' => 'Вход'))
             ->getForm();
 
+        $form->handleRequest($request);
 
-        //$content = 'test';
-        //$article = new Article();
+        if ($form->isValid()) {
 
-        //$article->setContent($content);
+            $login = $user->getLogin();
+            $password = $user->getPassword();
 
-        //$result = $article->getContent();
+            if (!empty($login) && !empty($password)) {
 
-        //$articleReposiory = $this->get('article_repository');
-        //$articles         = $articleReposiory->findAll();
+                $user = $this->signIn($login, $password);
 
-        //print_r($articles);
+                if (is_null($user)) {
+                    return $this->render('backend/login/login.html.twig', [
+                        'form'  => $form->createView(),
+                        'error' => 'Такого рользователя не существует'
+                    ]);
+                }
 
-//        $kernel = new KernelTestCase();
-//
-//        $t = $kernel->getKernel();
-//        $r = $kernel->getContainer();
+                $userId = $user->getId();
+                $this->autorizationService->setCurrentUserId($userId);
 
-        //return new Response('<html><body>' . $result . '</body></html>');
-
-        //return new Response('<html><body>Форма авторизации</body></html>');
+                /**
+                 * Как здесь взять путь из аннотации по имени?
+                 * Я так понимаю, есть функция, что-то типо RouteByName('backend_index')
+                 */
+                return $this->redirect('/backend');
+            }
+        }
 
         return $this->render('backend/login/login.html.twig', [
             'form' => $form->createView(),
+            'error' => ''
         ]);
+    }
+
+    /**
+     * @param string $login
+     * @param string $password
+     *
+     * @throw \InvalidArgumentException
+     * @return bool
+     */
+    protected function signIn($login, $password)
+    {
+        Assert::assert($login, 'login')->notEmpty()->string();
+        Assert::assert($password, 'password')->notEmpty()->string();
+
+        $userRepository = $this->get('user_repository');
+        $user           = $userRepository->findOneByLogin($login);
+
+        if (!is_null($user) && \password_verify($password, $user->getPassword())) {
+            return $user;
+        }
+
+        return null;
     }
 }

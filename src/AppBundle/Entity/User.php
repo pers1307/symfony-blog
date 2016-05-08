@@ -12,6 +12,7 @@ namespace pers1307\blog\AppBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as AssertForm;
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(
@@ -31,14 +32,14 @@ class User
 
     /**
      * @var int
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="roleId", type="integer")
      */
     private $roleId;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank(
+     * @AssertForm\NotBlank(
      *     message = "Поле не заполнено"
      * )
      */
@@ -47,7 +48,7 @@ class User
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
-     * * @Assert\NotBlank(
+     * @AssertForm\NotBlank(
      *     message = "Поле не заполнено"
      * )
      */
