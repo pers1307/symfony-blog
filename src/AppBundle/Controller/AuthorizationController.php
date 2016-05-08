@@ -10,11 +10,15 @@
 
 namespace pers1307\blog\AppBundle\Controller;
 
+use pers1307\blog\AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use pers1307\blog\AppBundle\Service\AuthorizationService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AuthorizationController extends Controller
 {
@@ -41,7 +45,13 @@ class AuthorizationController extends Controller
     {
         $this->beforeAction();
 
+        $user = new User();
 
+        $form = $this->createFormBuilder($user)
+            ->add('login', TextType::class, ['label' => 'Логин'])
+            ->add('password', PasswordType::class, ['label' => 'Пароль'])
+            ->add('save', SubmitType::class, array('label' => 'Вход'))
+            ->getForm();
 
 
         //$content = 'test';
@@ -65,6 +75,8 @@ class AuthorizationController extends Controller
 
         //return new Response('<html><body>Форма авторизации</body></html>');
 
-        return $this->render('backend/login/login.html.twig', []);
+        return $this->render('backend/login/login.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

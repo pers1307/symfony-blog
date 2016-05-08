@@ -10,6 +10,7 @@
 
 namespace pers1307\blog\AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as AssertForm;
 use KoKoKo\assert\Assert;
 
 /**
@@ -37,12 +38,18 @@ class User
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(
+     *     message = "Поле не заполнено"
+     * )
      */
     private $login;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
+     * * @Assert\NotBlank(
+     *     message = "Поле не заполнено"
+     * )
      */
     private $password;
 
