@@ -2,10 +2,11 @@
 
 namespace pers1307\blog\AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use pers1307\blog\AppBundle\Entity\Article;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
-class BlogController
+class BlogController extends Controller
 {
     /**
      * Запускаем сервер в симфони
@@ -19,15 +20,58 @@ class BlogController
      *
      * @return Response
      */
-    public function indexAction()
+
+//    public function indexAction()
+//    {
+//        $content = 'test';
+//        $article = new Article();
+//
+//        $article->setContent($content);
+//
+//        $result = $article->getContent();
+//
+//        return new Response('<html><body>' . $result . '</body></html>');
+//    }
+
+    /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction(Request $request)
     {
-        $content = 'test';
-        $article = new Article();
 
-        $article->setContent($content);
 
-        $result = $article->getContent();
 
-        return new Response('<html><body>' . $result . '</body></html>');
+
+//        // replace this example code with whatever you need
+//        return $this->render('default/index.html.twig', [
+//            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+//        ]);
+
+
+        return $this->render('frontend/index.html.twig', []);
+    }
+
+    /**
+     * @Route("/post", name="post")
+     */
+    public function postAction(Request $request)
+    {
+        return $this->render('frontend/post.html.twig', []);
+    }
+
+    /**
+     * @Route("/contacts", name="contacts")
+     */
+    public function contactsAction(Request $request)
+    {
+        return $this->render('frontend/contacts.html.twig', []);
+    }
+
+    /**
+     * @Route("/404", name="not_found_page")
+     */
+    public function notFoundAction(Request $request)
+    {
+        return $this->render('frontend/404.html.twig', []);
     }
 }
