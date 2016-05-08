@@ -11,15 +11,26 @@
 namespace pers1307\blog\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use pers1307\blog\AppBundle\Service\AuthorizationService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-//use pers1307\blog\AppBundle\Entity\Article;
 use Symfony\Component\Routing\Annotation\Route;
-
-//use pers1307\blog\tests\AppBundle\Entity\KernelTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthorizationController extends Controller
 {
+    /** @var AuthorizationService */
+    protected $autorizationService;
+
+    /**
+     * Метод вызывается перез action
+     */
+    protected function beforeAction()
+    {
+        $this->autorizationService = AuthorizationService::getInstance();
+
+        // Проверка на авторизацию
+    }
+
     /**
      * @Route("/login", name="authorization_index")
      * @Method({"GET", "HEAD"})
@@ -28,6 +39,11 @@ class AuthorizationController extends Controller
      */
     public function indexAction()
     {
+        $this->beforeAction();
+
+
+
+
         //$content = 'test';
         //$article = new Article();
 
@@ -49,11 +65,6 @@ class AuthorizationController extends Controller
 
         //return new Response('<html><body>Форма авторизации</body></html>');
 
-        return $this->render('backend/index.html.twig', []);
+        return $this->render('backend/login/login.html.twig', []);
     }
-
-
-    /**
-     * Сделать методы signIn и signOut
-     */
 }
