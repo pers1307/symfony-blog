@@ -41,7 +41,7 @@ class AuthorizationController extends Controller
      *
      * @return Response
      */
-    public function indexAction(Request $request)
+    public function inAction(Request $request)
     {
         $this->beforeAction();
         $userId = $this->autorizationService->getCurrentUserId();
@@ -113,5 +113,23 @@ class AuthorizationController extends Controller
         }
 
         return null;
+    }
+
+    /**
+     * @Route("/logout", name="singOut")
+     * @Method({"GET", "HEAD"})
+     *
+     * @return Response
+     */
+    public function outAction()
+    {
+        $this->beforeAction();
+        $this->singOut();
+        return $this->redirect('/');
+    }
+
+    protected function singOut()
+    {
+        $this->autorizationService->signOut();
     }
 }

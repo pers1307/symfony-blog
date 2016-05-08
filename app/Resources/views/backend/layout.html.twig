@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Админ панель Symfony Blog</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/dist/css/AdminLTE.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/dist/css/skins/_all-skins.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/iCheck/flat/blue.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/morris/morris.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/datepicker/datepicker3.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/daterangepicker/daterangepicker-bs3.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+
+{% block wrapper %}
+{% endblock %}
+
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 0.3
+    </div>
+    <strong>Copyright &copy; 2016.</strong> Перескоков Юрий (pers1307)
+</footer>
+<!-- ./wrapper -->
+<script src="{{ asset('bundles/framework/backend/plugins/jQuery/jQuery-2.2.0.min.js') }}"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="{{ asset('bundles/framework/backend/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/framework/backend/dist/js/app.min.js') }}"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthorizationController.php
+ * BackendController.php
  *
  * @author      Pereskokov Yurii
  * @copyright   2016 Pereskokov Yurii
@@ -11,15 +11,26 @@
 namespace pers1307\blog\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use pers1307\blog\AppBundle\Service\AuthorizationService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 //use pers1307\blog\AppBundle\Entity\Article;
 use Symfony\Component\Routing\Annotation\Route;
 
-//use pers1307\blog\tests\AppBundle\Entity\KernelTestCase;
 
 class BackendController extends Controller
 {
+    /** @var AuthorizationService */
+    protected $autorizationService;
+
+    /**
+     * Метод вызывается перед action
+     */
+    protected function beforeAction()
+    {
+        $this->autorizationService = AuthorizationService::getInstance();
+    }
+
     /**
      * @Route("/backend", name="backend_index")
      * @Method({"GET", "HEAD"})
@@ -28,28 +39,32 @@ class BackendController extends Controller
      */
     public function indexAction()
     {
-        //$content = 'test';
-        //$article = new Article();
+        $this->beforeAction();
 
-        //$article->setContent($content);
+        // проверить что пользователь залогинен
 
-        //$result = $article->getContent();
+        // Посчитать общее количество статей
+        $articleRepository = $this->get('article_repository');
+        $qb = $articleRepository->createQueryBuilder('a');
+        $qb->select('COUNT(a)');
+        $count = $qb->getQuery()->getSingleScalarResult();
 
-        //$articleReposiory = $this->get('article_repository');
-        //$articles         = $articleReposiory->findAll();
+        // Достать первые 10 статей
+        $qb = $articleRepository->createQueryBuilder('a');
+        $qb->select('a');
+        $qb->setMaxResults(10);
+        $articles = $qb->getQuery()->getScalarResult();
 
-        //print_r($articles);
+        // Достать информацию о пользователе
+        $userId = $this->autorizationService->getCurrentUserId();
+        $userRepository = $this->get('user_repository');
+        $user = $userRepository->findOneById($userId);
 
-//        $kernel = new KernelTestCase();
-//
-//        $t = $kernel->getKernel();
-//        $r = $kernel->getContainer();
-
-        //return new Response('<html><body>' . $result . '</body></html>');
-
-        //return new Response('<html><body>Форма авторизации</body></html>');
-
-        return $this->render('backend/backend.html.twig', []);
+        return $this->render('backend/backend.html.twig', [
+            'user' => $user,
+            'count' => $count,
+            'articles' => $articles,
+        ]);
     }
 
 
@@ -61,27 +76,6 @@ class BackendController extends Controller
      */
     public function newArticleAction()
     {
-        //$content = 'test';
-        //$article = new Article();
-
-        //$article->setContent($content);
-
-        //$result = $article->getContent();
-
-        //$articleReposiory = $this->get('article_repository');
-        //$articles         = $articleReposiory->findAll();
-
-        //print_r($articles);
-
-//        $kernel = new KernelTestCase();
-//
-//        $t = $kernel->getKernel();
-//        $r = $kernel->getContainer();
-
-        //return new Response('<html><body>' . $result . '</body></html>');
-
-        //return new Response('<html><body>Форма авторизации</body></html>');
-
         return $this->render('backend/new.html.twig', []);
     }
 }
