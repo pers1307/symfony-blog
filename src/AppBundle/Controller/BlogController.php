@@ -17,50 +17,15 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
     /**
-     * Запускаем сервер в симфони
-     * php bin/console server:run
-     * php bin/console server:stop
-     *
-     * php app/console server:run 127.0.0.1:9000
-     * http://localhost:9000/
-     *
-     * http://127.0.0.1:8000/app_dev.php/blog
-     *
-     * @return Response
-     */
-
-//    public function indexAction()
-//    {
-//        $content = 'test';
-//        $article = new Article();
-//
-//        $article->setContent($content);
-//
-//        $result = $article->getContent();
-//
-//        return new Response('<html><body>' . $result . '</body></html>');
-//    }
-
-    /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-
-
-
-
-//        // replace this example code with whatever you need
-//        return $this->render('default/index.html.twig', [
-//            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-//        ]);
-
-
         return $this->render('frontend/index.html.twig', []);
     }
 
     /**
-     * @Route("/post", name="post")
+     * @Route("/post/", name="post")
      */
     public function postAction(Request $request)
     {
@@ -68,7 +33,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/contacts", name="contacts")
+     * @Route("/contacts/", name="contacts")
      */
     public function contactsAction(Request $request)
     {
@@ -76,10 +41,16 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/404", name="not_found_page")
+     * @Route("/404/", name="not_found_page")
      */
     public function notFoundAction(Request $request)
     {
-        return $this->render('frontend/404.html.twig', []);
+        return $this->render('frontend/error.html.twig', [
+            'code'        => '404',
+            'title'       => 'NOT FOUND',
+            'message'     => 'Запрашиваемая вами информация не найдена.',
+            'link'        => '/',
+            'ButtonTitle' => 'На главную'
+        ]);
     }
 }

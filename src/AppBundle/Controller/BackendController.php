@@ -31,7 +31,7 @@ class BackendController extends Controller
     }
 
     /**
-     * @Route("/backend", name="backend_index")
+     * @Route("/backend/", name="backend_index")
      * @Method({"GET", "HEAD"})
      *
      * @return Response
@@ -85,7 +85,7 @@ class BackendController extends Controller
     }
 
     /**
-     * @Route("/backend/new_article/{id}", defaults={"id" = 0}, name="backend_newArticle")
+     * @Route("/backend/new_article/{id}/", defaults={"id" = 0}, name="backend_newArticle")
      * @Method({"GET", "HEAD"})
      *
      * @return Response
@@ -109,7 +109,7 @@ class BackendController extends Controller
     }
 
     /**
-     * @Route("/backend/articles/{page}", defaults={"page" = 1}, name="backend_articles")
+     * @Route("/backend/articles/{page}/", defaults={"page" = 1}, name="backend_articles")
      * @Method({"GET", "HEAD"})
      *
      * @return Response
@@ -157,7 +157,7 @@ class BackendController extends Controller
     }
 
     /**
-     * @Route("/backend/delete_article/{id}", name="delete_article")
+     * @Route("/backend/delete_article/{id}/", name="delete_article")
      * @Method({"GET", "HEAD"})
      *
      * @return Response

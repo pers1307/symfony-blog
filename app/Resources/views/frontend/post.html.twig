@@ -1,199 +1,23 @@
-<!DOCTYPE html>
-<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
-<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
-<head>
+{% extends 'frontend/layouts/layout.html.twig' %}
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Blomag - Responsive Minimal Blog Template</title>
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,400italic,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/font-awesome/css/font-awesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/style.css') }}" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
-
-<div class="wrapper">
-
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-9">
-                    <a href="./index.html" class="logo"><img src="images/logo.png" class="img-responsive" alt=""/></a>
-                </div>
-                <div class="col-md-8">
-                    <div class="search-content">
-                        <form>
-                            <input type="text" placeholder="Search text here...">
-                        </form>
-                    </div>
-                    <div class="top-post">
-                        <span>latest Post</span>
-                        <h4><a href="#">5 Off-Page SEO Techniques that Aren't about Backlinks</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-1 col-xs-3">
-                    <div class="search-trigger"><img src="images/ico/search.png" alt=""/></div>
-                </div>
-            </div>
-            <div class="freebie-btn">
-                <a href="#"></a>
-            </div>
-        </div>
-    </header>
-    <!-- HEADER -->
-
-    <!-- MENU -->
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <!-- Navmenu -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a class="active" href="#">Startup</a></li>
-                    <li class="dropdown">
-                        <a href="./categories.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Best Industries</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="./categories.html">Action</a></li>
-                            <li><a href="./categories.html">Another action</a></li>
-                            <li><a href="./categories.html">Something else here</a></li>
-                            <li><a href="./categories.html">Separated link</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./categories.html">Funding</a></li>
-                    <li><a href="./categories.html">Incubators<span>New</span></a></li>
-                    <li><a href="./categories.html">Business Plans</a></li>
-                    <li><a href="./categories.html">Seo</a></li>
-                    <li><a href="./categories.html">Online Marketing</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- MENU -->
-
-    <!-- TERMS INFO -->
-    <div class="inner-content">
+{% block content %}
+    <div class="inner-content2">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="terms-info">
-                        <h3>Terms and Conditions</h3>
+                        <h1>Terms and Conditions</h1>
                         <p class="lead">Last Update on July 8, 2015 at 14:05</p>
-                        <h4>In using this website you are deemed to have read and agreed to the following terms and conditions:</h4>
+
+                        <h3>In using this website you are deemed to have read and agreed to the following terms and conditions:</h3>
                         <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: "Client", "You" and "Your" refers to you, the person accessing this website and accepting the Company's terms and conditions. "The Company", "Ourselves", "We" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves, or either the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Client's needs in respect of provision of the Company's stated services/products, in accordance with and subject to, prevailing English Law. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
-                        <h4>Privacy Statement</h4>
+                        <h2>Privacy Statement</h2>
                         <p>We are committed to protecting your privacy. Authorized employees within the company on a need to know basis only use any information collected from individual customers. We constantly review our systems and data to ensure the best possible service to our customers. Parliament has created specific offences for unauthorised actions against computer systems and data. We will investigate any such actions with a view to prosecuting and/or taking civil proceedings to recover damages against those responsible.</p>
                         <h4>Confidentiality</h4>
                         <p>We are registered under the Data Protection Act 1998 and as such, any information concerning the Client and their respective Client Records may be passed to third parties. However, Client records are regarded as confidential and therefore will not be divulged to any third party, other than [our manufacturer/supplier(s) and] if legally required to do so to the appropriate authorities. Clients have the right to request sight of, and copies of any and all Client Records we keep, on the proviso that we are given reasonable notice of such a request. Clients are requested to retain copies of any literature issued in relation to the provision of our services. Where appropriate, we shall issue Client's with appropriate written information, handouts or copies of records as part of an agreed contract, for the benefit of both parties.</p>
-                        <h4>Disclaimer Exclusions and Limitations</h4>
-                        <p>The information on this web site is provided on an "as is" basis. To the fullest extent permitted by law, this Company:<br>
-                            1 &nbsp; &nbsp; &nbsp; excludes all representations and warranties relating to this website and its contents or which is or may be provided by any affiliates or any other third party, including in relation to any inaccuracies or omissions in this website and/or the Company's literature; and <br>
-                            2 &nbsp; &nbsp; &nbsp; excludes all liability for damages arising out of or in connection with your use of this website. This includes, without limitation, direct loss, loss of business or profits (whether or not the loss of such profits was foreseeable, arose in the normal course of things or you have advised this Company of the possibility of such potential loss), damage caused to your computer, computer software, systems and programs and the data thereon or any other direct or indirect, consequential and incidental damages.<br>
-                            This Company does not however exclude liability for death or personal injury caused by its negligence. The above exclusions and limitations apply only to the extent permitted by law. None of your statutory rights as a consumer are affected.
-                        </p>
-                        <h4>Payment</h4>
-                        <p>Cash or Personal Cheque with Bankers Card, all major Credit/Debit Cards, Bankers Draft or BACS Transfer are all acceptable methods of payment. Our Terms are payment in full within thirty days. All goods remain the property of the Company until paid for in full. Monies that remains outstanding by the due date will incur late payment interest at the rate of 2% above the prevailing Bank of England's base rate on the outstanding balance until such time as the balance is paid in full and final settlement. We reserve the right to seek recovery of any monies remaining unpaid sixty days from the date of invoice via collection Agencies and/or through the Small Claims Court in the event that the outstanding balance does not exceed &pound;3000. In such circumstances, you shall be liable for any and all additional administrative and/or court costs. [Amend as appropriate]<br>
-                            <br>
-                            Returned cheques will incur a &pound;25 charge to cover banking fees and administrative costs. In an instance of a second Returned cheque, we reserve the right to terminate the arrangement and, if agreed to, we shall insist on future cash transactions only. Consequently, all bookings and/or transactions and agreements entered into will cease with immediate effect until such time as any and all outstanding monies are recovered in full.
-                        </p>
-                        <h4>Cancellation Policy</h4>
-                        <p>Minimum 24 hours notice of cancellation required. Notification for instance, in person, via email, mobile phone 'text message' and/or fax, or any other means will be accepted subject to confirmation in writing. We reserve the right to levy a &pound;30 charge to cover any subsequent administrative expenses.</p>
-                        <h4>Termination of Agreements and Refunds Policy</h4>
-                        <p>Both the Client and ourselves have the right to terminate any Services Agreement for any reason, including the ending of services that are already underway. No refunds shall be offered, where a Service is deemed to have begun and is, for all intents and purposes, underway. Any monies that have been paid to us which constitute payment in respect of the provision of unused Services, shall be refunded.</p>
-                        <h4>Availability</h4>
-                        <p>Unless otherwise stated, the services featured on this website are only available within the United Kingdom, or in relation to postings from the United Kingdom. All advertising is intended solely for the United Kingdom market. You are solely responsible for evaluating the fitness for a particular purpose of any downloads, programs and text available through this site. Redistribution or republication of any part of this site or its content is prohibited, including such by framing or other similar or any other means, without the express written consent of the Company. The Company does not warrant that the service from this site will be uninterrupted, timely or error free, although it is provided to the best ability. By using this service you thereby indemnify this Company, its employees, agents and affiliates against any loss or damage, in whatever manner, howsoever caused.</p>
-                        <h4>Log Files</h4>
-                        <p>We use IP addresses to analyse trends, administer the site, track user's movement, and gather broad demographic information for aggregate use. IP addresses are not linked to personally identifiable information. Additionally, for systems administration, detecting usage patterns and troubleshooting purposes, our web servers automatically log standard access information including browser type, access times/open mail, URL requested, and referral URL. This information is not shared with third parties and is used only within this Company on a need-to-know basis. Any individually identifiable information related to this data will never be used in any way different to that stated above without your explicit permission.</p>
-                        <h4>Cookies</h4>
-                        <p>Like most interactive web sites this Company's website [or ISP] uses cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate partners may also use cookies.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- TERMS INFO -->
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 footer-widget footer-about">
-                    <h5>About</h5>
-                    <p>BloMag HTML Template was built exclusively for Blog Marketers that own a blog or a News Magazine.</p>
-                </div>
-                <div class="col-md-3 footer-widget footer-subscribe">
-                    <h5>Subscribe</h5>
-                    <form>
-                        <input type="text" placeholder="Email...">
-                        <button type="submit">Subscribe to Newsletter</button>
-                        <span>We will never spam you!</span>
-                    </form>
-                </div>
-                <div class="col-md-6 footer-widget">
-                    <h5>Featured</h5>
-                    <div class="row footer-news">
-                        <div class="col-md-4">
-                            <a href="./blog.html"><img src="images/home/other/1.jpg" class="img-reponsive" alt=""/></a>
-                        </div>
-                        <div class="col-md-8">
-                            <h4><a href="./blog.html">4 Elements You Need to Include in Your Online Marketing Campaigns</a></h4>
-                            <div class="post-meta">
-                                <span class="post-author">Matt Morgan</span>
-                                <span class="post-tags"><a href="#">Development</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- FOOTER -->
-
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p>&copy; 2015 BloMag HTML Template. Trademarks and brands are the property of their respective owners.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- COPYRIGHT -->
-
-</div>
-<link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/jquery.js') }}" />
-<link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/bootstrap.min.js') }}" />
-<link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/vendors/jquery.sticky.js') }}" />
-<link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/bs-header.js') }}" />
-<link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/main.js') }}" />
-</body>
-</html>
+{% endblock %}

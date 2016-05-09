@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Блог PHP разработчика</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,400italic,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/font-awesome/css/font-awesome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/css/style.css') }}" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+    <body>
+        <div class="wrapper">
+            {%include 'frontend/common/header.html.twig' %}
+            {%include 'frontend/common/menu.html.twig' %}
+
+            {% block content %}
+            {% endblock %}
+
+            {%include 'frontend/common/footer.html.twig' %}
+        </div>
+
+        <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/jquery.js') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/bootstrap.min.js') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/vendors/jquery.sticky.js') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/bs-header.js') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/framework/frontend/js/main.js') }}" />
+    </body>
+</html>

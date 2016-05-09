@@ -36,7 +36,7 @@ class AuthorizationController extends Controller
     }
 
     /**
-     * @Route("/login", name="authorization_index")
+     * @Route("/login/", name="authorization_index")
      * @Method({"GET", "HEAD", "POST"})
      *
      * @return Response
@@ -116,7 +116,7 @@ class AuthorizationController extends Controller
     }
 
     /**
-     * @Route("/logout", name="singOut")
+     * @Route("/logout/", name="singOut")
      * @Method({"GET", "HEAD"})
      *
      * @return Response

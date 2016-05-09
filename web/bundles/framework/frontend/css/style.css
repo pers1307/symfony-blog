@@ -82,6 +82,9 @@ h6 {
 	color: #000;
 }
 
+
+
+
 p {
 	margin-bottom: 17px;
 	font-size: 13px;
@@ -507,6 +510,10 @@ progress[aria-valuenow]:before {
 
 .inner-content {
 	padding: 80px 0;
+}
+
+.inner-content2 {
+	/*padding: 80px 0;*/
 }
 
 .post-thumb {
@@ -1074,13 +1081,21 @@ progress[aria-valuenow]:before {
 }
 
 /* 10. TERMS */
-
-.terms-info h3 {
+.terms-info h1 {
 	font-size: 52px;
 	color: #2a3744;
 	margin: 37px 0 3px;
 	line-height: 70px;
 	font-weight: 600;
+}
+
+
+.terms-info h3 {
+	/*font-size: 52px;*/
+	/*color: #2a3744;*/
+	/*margin: 37px 0 3px;*/
+	/*line-height: 70px;*/
+	/*font-weight: 600;*/
 }
 
 .terms-info p.lead {
@@ -1115,9 +1130,13 @@ progress[aria-valuenow]:before {
 }
 
 .contact-content {
-	height: 680px;
+	/*height: 680px;*/
 	padding: 67px 0;
 }
+
+/*.contact-content2 {*/
+	/*padding: 67px 0;*/
+/*}*/
 
 .contact-content h5 {
 	font-size: 52px;
