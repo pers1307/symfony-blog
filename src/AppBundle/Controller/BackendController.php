@@ -14,7 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use pers1307\blog\AppBundle\Service\AuthorizationService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-//use pers1307\blog\AppBundle\Entity\Article;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -42,6 +41,20 @@ class BackendController extends Controller
         $this->beforeAction();
 
         // проверить что пользователь залогинен
+        /**
+         * Непонятно как избавится от этой копи пасты?
+         * Потому что return должен производиться из контроллера,
+         * как я понял
+         */
+        if (is_null($this->autorizationService->getCurrentUserId())) {
+            return $this->render('frontend/error.html.twig', [
+                'code'        => '401',
+                'title'       => 'Нет доступа',
+                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
+                'link'        => '/login',
+                'ButtonTitle' => 'Войти'
+            ]);
+        }
 
         // Посчитать общее количество статей
         $articleRepository = $this->get('article_repository');
@@ -55,6 +68,10 @@ class BackendController extends Controller
         $qb->setMaxResults(10);
         $articles = $qb->getQuery()->getScalarResult();
 
+        foreach ($articles as &$article) {
+            $article['a_createdAt'] = date_format($article['a_createdAt'], 'd-m-Y H:i');
+        }
+
         // Достать информацию о пользователе
         $userId = $this->autorizationService->getCurrentUserId();
         $userRepository = $this->get('user_repository');
@@ -67,15 +84,72 @@ class BackendController extends Controller
         ]);
     }
 
-
     /**
-     * @Route("/new", name="backend_newArticle")
+     * @Route("/backend/new_article/{id}", defaults={"id" = 0}, name="backend_newArticle")
      * @Method({"GET", "HEAD"})
      *
      * @return Response
      */
-    public function newArticleAction()
+    public function newArticleAction($id)
     {
+        $this->beforeAction();
+
+        // проверить что пользователь залогинен
+        if (is_null($this->autorizationService->getCurrentUserId())) {
+            return $this->render('frontend/error.html.twig', [
+                'code'        => '401',
+                'title'       => 'Нет доступа',
+                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
+                'link'        => '/login',
+                'ButtonTitle' => 'Войти'
+            ]);
+        }
+
         return $this->render('backend/new.html.twig', []);
+    }
+
+    /**
+     * @Route("/backend/articles/{page}", defaults={"page" = 1}, name="backend_articles")
+     * @Method({"GET", "HEAD"})
+     *
+     * @return Response
+     */
+    public function allArticlesAction($page)
+    {
+        $this->beforeAction();
+
+        // проверить что пользователь залогинен
+        if (is_null($this->autorizationService->getCurrentUserId())) {
+            return $this->render('frontend/error.html.twig', [
+                'code'        => '401',
+                'title'       => 'Нет доступа',
+                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
+                'link'        => '/login',
+                'ButtonTitle' => 'Войти'
+            ]);
+        }
+
+    }
+
+    /**
+     * @Route("/backend/delete_article/{id}", name="delete_article")
+     * @Method({"GET", "HEAD"})
+     *
+     * @return Response
+     */
+    public function deleteArticleAction($id)
+    {
+        $this->beforeAction();
+
+        // проверить что пользователь залогинен
+        if (is_null($this->autorizationService->getCurrentUserId())) {
+            return $this->render('frontend/error.html.twig', [
+                'code'        => '401',
+                'title'       => 'Нет доступа',
+                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
+                'link'        => '/login',
+                'ButtonTitle' => 'Войти'
+            ]);
+        }
     }
 }
