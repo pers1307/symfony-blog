@@ -17,25 +17,8 @@
                 </h1>
             </section>
 
-            <!-- Main content -->
             <section class="content">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-aqua">
-                            <div class="inner">
-                                <h3>{{ count }}</h3>
-                                <p>Общее количество статей</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- TO DO List -->
                 <div class="box box-primary">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
@@ -60,8 +43,8 @@
                                     <span class="text">{{ article['a_name'] }}</span>
                                     <small class="label label-info"><i class="fa fa-clock-o"></i> {{ article['a_createdAt'] }}</small>
                                     <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
+                                        <a href="/backend/new_article/{{ article['a_id'] }}"><i class="fa fa-edit"></i></a>
+                                        <a href="/backend/delete_article/{{ article['a_id'] }}"><i class="fa fa-trash-o"></i></a>
                                     </div>
                                 </li>
                             {% endfor %}
@@ -69,7 +52,7 @@
                     </div>
 
                     <div class="box-footer clearfix no-border">
-                        <a href="#" type="button" class="btn btn-default pull-right">
+                        <a href="{{ path('backend_newArticle') }}" type="button" class="btn btn-default pull-right">
                             <i class="fa fa-plus"></i> Добавить статью
                         </a>
                     </div>

@@ -129,6 +129,31 @@ class BackendController extends Controller
             ]);
         }
 
+        $articleRepository = $this->get('article_repository');
+
+        // Применить объект пагинации
+        /**
+         * todo: Применить объект пагинации
+         */
+
+        $qb = $articleRepository->createQueryBuilder('a');
+        $qb->select('a');
+        //$qb->setMaxResults(10);
+        $articles = $qb->getQuery()->getScalarResult();
+
+        foreach ($articles as &$article) {
+            $article['a_createdAt'] = date_format($article['a_createdAt'], 'd-m-Y H:i');
+        }
+
+        // Достать информацию о пользователе
+        $userId = $this->autorizationService->getCurrentUserId();
+        $userRepository = $this->get('user_repository');
+        $user = $userRepository->findOneById($userId);
+
+        return $this->render('backend/articles.html.twig', [
+            'user' => $user,
+            'articles' => $articles,
+        ]);
     }
 
     /**
@@ -143,13 +168,9 @@ class BackendController extends Controller
 
         // проверить что пользователь залогинен
         if (is_null($this->autorizationService->getCurrentUserId())) {
-            return $this->render('frontend/error.html.twig', [
-                'code'        => '401',
-                'title'       => 'Нет доступа',
-                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
-                'link'        => '/login',
-                'ButtonTitle' => 'Войти'
-            ]);
+            /**
+             * Отправить ответ, что действие невозможно с помощью json
+             */
         }
     }
 }
