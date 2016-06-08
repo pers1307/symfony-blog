@@ -13,6 +13,6 @@ INSERT INTO `files` VALUES ('3', 'img/1920on1080.jpg');
 INSERT INTO `files` VALUES ('4', 'img/less1.png');
 INSERT INTO `files` VALUES ('5', 'img/less1.png');
 
-INSERT INTO `roles` VALUES ('1', 'admin');
+INSERT INTO `roles` VALUES ('1', 'ROLE_ADMIN');
 
 INSERT INTO `users` VALUES ('1', '1', 'pers1307', '$2y$10$zOoLA87H7z9XjApJM/ftee5d3K2LpP1sksU1BGeyhKlAZ8.6rGfmC');
