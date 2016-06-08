@@ -21,6 +21,8 @@ class BlogController extends Controller
      */
     public function indexAction(Request $request)
     {
+        var_dump(__DIR__);
+        die;
         return $this->render('frontend/index.html.twig', []);
     }
 
