@@ -28,14 +28,6 @@ class AuthorizationController extends Controller
     protected $autorizationService;
 
     /**
-     * Метод вызывается перед action
-     */
-    protected function beforeAction()
-    {
-        $this->autorizationService = AuthorizationService::getInstance();
-    }
-
-    /**
      * @Route("/login/", name="authorization_index")
      * @Method({"GET", "HEAD", "POST"})
      *
@@ -43,7 +35,7 @@ class AuthorizationController extends Controller
      */
     public function inAction(Request $request)
     {
-        $this->beforeAction();
+        $this->autorizationService = AuthorizationService::getInstance();
         $userId = $this->autorizationService->getCurrentUserId();
 
         if (!empty($userId)) {
@@ -123,7 +115,7 @@ class AuthorizationController extends Controller
      */
     public function outAction()
     {
-        $this->beforeAction();
+        $this->autorizationService = AuthorizationService::getInstance();
         $this->singOut();
         return $this->redirect('/');
     }
