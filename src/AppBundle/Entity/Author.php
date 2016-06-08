@@ -11,6 +11,7 @@
 namespace pers1307\blog\AppBundle\Entity;
 
 use KoKoKo\assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(

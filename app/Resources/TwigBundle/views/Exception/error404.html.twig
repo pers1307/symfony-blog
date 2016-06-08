@@ -1,16 +1,16 @@
-{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
-{% extends 'base.html.twig' %}
+{% extends ':frontend/layouts:layout.html.twig' %}
 
-{% block body %}
-    <h1>Page not found</h1>
-
-    {# example security usage, see below #}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {# ... #}
-    {% endif %}
-
-    <p>
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{ path('homepage') }}">return to the homepage</a>.
-    </p>
+{% block content %}
+    <div class="error-content text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>{{ status_text }}</h4>
+                    <p>Извините, но такой странице не найдено</p>
+                    <a href="{{ path('homepage') }}">На главную</a>
+                    <h2>{{ status_code }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
