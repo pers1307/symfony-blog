@@ -16,19 +16,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class BackendController extends Controller
 {
     /** @var AuthorizationService */
-    protected $autorizationService;
-
-    /**
-     * Метод вызывается перед action
-     */
-    protected function beforeAction()
-    {
-        $this->autorizationService = AuthorizationService::getInstance();
-    }
+    private $autorizationService;
 
     /**
      * @Route("/backend/", name="backend_index")
@@ -38,7 +29,7 @@ class BackendController extends Controller
      */
     public function indexAction()
     {
-        //$this->beforeAction();
+        $this->beforeAction();
 
         // проверить что пользователь залогинен
         /**
@@ -172,5 +163,13 @@ class BackendController extends Controller
              * Отправить ответ, что действие невозможно с помощью json
              */
         }
+    }
+
+    /**
+     * Метод вызывается перед action
+     */
+    private function beforeAction()
+    {
+        $this->autorizationService = AuthorizationService::getInstance();
     }
 }

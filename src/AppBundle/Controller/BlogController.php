@@ -39,18 +39,4 @@ class BlogController extends Controller
     {
         return $this->render('frontend/contacts.html.twig', []);
     }
-
-    /**
-     * @Route("/404/", name="not_found_page")
-     */
-    public function notFoundAction(Request $request)
-    {
-        return $this->render('frontend/error.html.twig', [
-            'code'        => '404',
-            'title'       => 'NOT FOUND',
-            'message'     => 'Запрашиваемая вами информация не найдена.',
-            'link'        => '/',
-            'ButtonTitle' => 'На главную'
-        ]);
-    }
 }

@@ -71,10 +71,6 @@ class AuthorizationController extends Controller
                 $userId = $user->getId();
                 $this->autorizationService->setCurrentUserId($userId);
 
-                /**
-                 * Как здесь взять путь из аннотации по имени?
-                 * Я так понимаю, есть функция, что-то типо RouteByName('backend_index')
-                 */
                 return $this->redirect('/backend');
             }
         }
@@ -83,28 +79,6 @@ class AuthorizationController extends Controller
             'form' => $form->createView(),
             'error' => ''
         ]);
-    }
-
-    /**
-     * @param string $login
-     * @param string $password
-     *
-     * @throw \InvalidArgumentException
-     * @return bool
-     */
-    protected function signIn($login, $password)
-    {
-        Assert::assert($login, 'login')->notEmpty()->string();
-        Assert::assert($password, 'password')->notEmpty()->string();
-
-        $userRepository = $this->get('user_repository');
-        $user           = $userRepository->findOneByLogin($login);
-
-        if (!is_null($user) && \password_verify($password, $user->getPassword())) {
-            return $user;
-        }
-
-        return null;
     }
 
     /**
@@ -118,6 +92,28 @@ class AuthorizationController extends Controller
         $this->autorizationService = AuthorizationService::getInstance();
         $this->singOut();
         return $this->redirect('/');
+    }
+
+    /**
+     * @param string $login
+     * @param string $password
+     *
+     * @throw \InvalidArgumentException
+     * @return bool
+     */
+    private function signIn($login, $password)
+    {
+        Assert::assert($login, 'login')->notEmpty()->string();
+        Assert::assert($password, 'password')->notEmpty()->string();
+
+        $userRepository = $this->get('user_repository');
+        $user           = $userRepository->findOneByLogin($login);
+
+        if (!is_null($user) && \password_verify($password, $user->getPassword())) {
+            return $user;
+        }
+
+        return null;
     }
 
     protected function singOut()

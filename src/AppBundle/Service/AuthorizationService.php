@@ -49,13 +49,6 @@ class AuthorizationService
         return self::$instance;
     }
 
-    private static function newSession()
-    {
-        if (is_null(self::$session)) {
-            self::$session = new Session();
-        }
-    }
-
     /**
      * @param int $userId
      *
@@ -93,5 +86,10 @@ class AuthorizationService
         return true;
     }
 
-
+    private static function newSession()
+    {
+        if (is_null(self::$session)) {
+            self::$session = new Session();
+        }
+    }
 }
