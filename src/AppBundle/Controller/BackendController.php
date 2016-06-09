@@ -144,7 +144,7 @@ class BackendController extends Controller
      * @Route("/backend/delete_article/{id}/", name="delete_article")
      * @Method({"GET", "HEAD"})
      *
-     * @return Response
+     * @return JsonResponse
      */
     public function deleteArticleAction($id)
     {
