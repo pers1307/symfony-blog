@@ -37,15 +37,15 @@ class BackendController extends Controller
          * Потому что return должен производиться из контроллера,
          * как я понял
          */
-//        if (is_null($this->autorizationService->getCurrentUserId())) {
-//            return $this->render('frontend/error.html.twig', [
-//                'code'        => '401',
-//                'title'       => 'Нет доступа',
-//                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
-//                'link'        => '/login',
-//                'ButtonTitle' => 'Войти'
-//            ]);
-//        }
+        if (is_null($this->autorizationService->getCurrentUserId())) {
+            return $this->render('frontend/error.html.twig', [
+                'code'        => '401',
+                'title'       => 'Нет доступа',
+                'message'     => 'Извините, но это действие доступно только авторизированным пользователям',
+                'link'        => '/login',
+                'ButtonTitle' => 'Войти'
+            ]);
+        }
 
         // Посчитать общее количество статей
         $articleRepository = $this->get('article_repository');
@@ -64,9 +64,10 @@ class BackendController extends Controller
         }
 
         // Достать информацию о пользователе
-//        $userId = $this->autorizationService->getCurrentUserId();
+        $userId = $this->autorizationService->getCurrentUserId();
         $userRepository = $this->get('user_repository');
-        $user = $userRepository->findOneById(1);
+        //$user = $userRepository->findOneById(1);
+        $user = $userRepository->findOneById($userId);
 
         return $this->render('backend/backend.html.twig', [
             'user' => $user,

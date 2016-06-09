@@ -33,7 +33,7 @@ class AuthorizationController extends Controller
      *
      * @return Response
      */
-    public function inAction(Request $request)
+    public function logInAction(Request $request)
     {
         $this->autorizationService = AuthorizationService::getInstance();
         $userId = $this->autorizationService->getCurrentUserId();
@@ -87,7 +87,7 @@ class AuthorizationController extends Controller
      *
      * @return Response
      */
-    public function outAction()
+    public function logOutAction()
     {
         $this->autorizationService = AuthorizationService::getInstance();
         $this->singOut();
