@@ -81,8 +81,6 @@ class Article
      */
     public function setCreatedAt(\DateTimeImmutable $date)
     {
-        Assert::assert($date, 'date')->notEmpty();
-
         $this->createdAt = $date;
 
         return $this;
