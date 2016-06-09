@@ -47,17 +47,12 @@ class BackendController extends Controller
             ]);
         }
 
-        // Посчитать общее количество статей
+        // get total count articles
         $articleRepository = $this->get('article_repository');
-        $qb = $articleRepository->createQueryBuilder('a');
-        $qb->select('COUNT(a)');
-        $count = $qb->getQuery()->getSingleScalarResult();
+        $count = $articleRepository->count();
 
-        // Достать первые 10 статей
-        $qb = $articleRepository->createQueryBuilder('a');
-        $qb->select('a');
-        $qb->setMaxResults(10);
-        $articles = $qb->getQuery()->getScalarResult();
+        // take first ten articles
+        $articles = $articleRepository->getItemsLimit(10);
 
         foreach ($articles as &$article) {
             $article['a_createdAt'] = date_format($article['a_createdAt'], 'd-m-Y H:i');
@@ -66,7 +61,6 @@ class BackendController extends Controller
         // Достать информацию о пользователе
         $userId = $this->autorizationService->getCurrentUserId();
         $userRepository = $this->get('user_repository');
-        //$user = $userRepository->findOneById(1);
         $user = $userRepository->findOneById($userId);
 
         return $this->render('backend/backend.html.twig', [
@@ -128,10 +122,7 @@ class BackendController extends Controller
          * todo: Применить объект пагинации
          */
 
-        $qb = $articleRepository->createQueryBuilder('a');
-        $qb->select('a');
-        //$qb->setMaxResults(10);
-        $articles = $qb->getQuery()->getScalarResult();
+        $articles = $articleRepository->findAll();
 
         foreach ($articles as &$article) {
             $article['a_createdAt'] = date_format($article['a_createdAt'], 'd-m-Y H:i');

@@ -15,4 +15,31 @@ use Doctrine\ORM\EntityRepository;
 
 class ArticleRepository extends EntityRepository
 {
+    /**
+     * @return int
+     */
+    public function count()
+    {
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('COUNT(a)');
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    /**
+     * @param int $limit
+     *
+     * @return array
+     * @throws \InvalidArgumentException
+     */
+    public function getItemsLimit($limit)
+    {
+        Assert::assert($limit, 'limit')->notEmpty()->int();
+
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('a');
+        $qb->setMaxResults(10);
+
+        return $qb->getQuery()->getScalarResult();
+    }
 }

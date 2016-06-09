@@ -37,7 +37,7 @@ class AuthorizationService
     }
 
     /**
-     * @return Autorization
+     * @return AuthorizationService
      */
     public static function getInstance()
     {
