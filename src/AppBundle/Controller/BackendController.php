@@ -13,6 +13,7 @@ namespace pers1307\blog\AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use pers1307\blog\AppBundle\Service\AuthorizationService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -151,9 +152,8 @@ class BackendController extends Controller
 
         // проверить что пользователь залогинен
         if (is_null($this->autorizationService->getCurrentUserId())) {
-            /**
-             * Отправить ответ, что действие невозможно с помощью json
-             */
+
+            return new JsonResponse('Forbidden', 403);
         }
     }
 
