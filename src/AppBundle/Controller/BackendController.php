@@ -122,6 +122,7 @@ class BackendController extends Controller
         /**
          * todo: Применить объект пагинации
          */
+        $pageService = $this->get('pagination_service');
 
         $articles = $articleRepository->findAll();
 

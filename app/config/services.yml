@@ -24,3 +24,7 @@ services:
           factory: ["@doctrine", getRepository]
           arguments:
               - pers1307\blog\AppBundle\Entity\User
+  pagination_service:
+          class:     pers1307\blog\AppBundle\Service\PaginationService
+#  authorization_service:
+#            class:     pers1307\blog\AppBundle\Service\AuthorizationService
