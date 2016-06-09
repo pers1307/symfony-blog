@@ -46,39 +46,36 @@ class PaginationService
     }
 
     //public function
-
-    /**
-    Assert::assert($currentPage, 'currentPage')->notEmpty()->int();
-    Assert::assert($postOnPage, 'postOnPage')->notEmpty()->int();
-
-    $res['block'] = '';
-    if ($currentPage === 1) {
-    $res['block'] = 'start';
-    }
-
-    $article = new ArticleRepository();
-    $countArticles = $article->count();
-
-    if ($currentPage > floor($countArticles / $postOnPage)) {
-    $currentPage = ceil($countArticles / $postOnPage);
-    }
-    $offset = ($currentPage - 1) * $postOnPage;
-
-    if ($offset < 0) {
-    $offset = 0;
-    }
-    $articles = $article->findByLimit((int)$postOnPage, (int)$offset);
-
-    if (count($articles) < $postOnPage) {
-    $res['block'] = 'end';
-    }
-
-    if ((int)$countArticles === (int)($currentPage * $postOnPage)) {
-    $res['block'] = 'end';
-    }
-    $res['cutArticles'] = $articles;
-    $res['countPage'] = ceil($countArticles / $postOnPage);
-
-    return $res;
-     */
+//    Assert::assert($currentPage, 'currentPage')->notEmpty()->int();
+//    Assert::assert($postOnPage, 'postOnPage')->notEmpty()->int();
+//
+//    $res['block'] = '';
+//    if ($currentPage === 1) {
+//    $res['block'] = 'start';
+//    }
+//
+//    $article = new ArticleRepository();
+//    $countArticles = $article->count();
+//
+//    if ($currentPage > floor($countArticles / $postOnPage)) {
+//    $currentPage = ceil($countArticles / $postOnPage);
+//    }
+//    $offset = ($currentPage - 1) * $postOnPage;
+//
+//    if ($offset < 0) {
+//    $offset = 0;
+//    }
+//    $articles = $article->findByLimit((int)$postOnPage, (int)$offset);
+//
+//    if (count($articles) < $postOnPage) {
+//    $res['block'] = 'end';
+//    }
+//
+//    if ((int)$countArticles === (int)($currentPage * $postOnPage)) {
+//    $res['block'] = 'end';
+//    }
+//    $res['cutArticles'] = $articles;
+//    $res['countPage'] = ceil($countArticles / $postOnPage);
+//
+//    return $res;
 }
