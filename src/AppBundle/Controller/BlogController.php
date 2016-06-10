@@ -17,10 +17,13 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{id}", defaults={"id" = 1}, name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction($id)
     {
+        //$pagerService = $this->get('pagination_service');
+
+
         return $this->render('frontend/index.html.twig', []);
     }
 

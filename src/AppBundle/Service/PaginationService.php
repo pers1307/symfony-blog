@@ -11,21 +11,31 @@
 namespace pers1307\blog\AppBundle\Service;
 
 use KoKoKo\assert\Assert;
+use pers1307\blog\AppBundle\Exception\EmptyArgumentException;
+use pers1307\blog\AppBundle\Exception\NoPageException;
 
 /**
  * Class PaginationService
  * @package pers1307\blog\AppBundle\Service
- * Класс для пагинации
+ * pagination class
  */
 class PaginationService
 {
     /** @var int */
-    protected $itemsOnPage;
+    private $itemsOnPage;
 
     /** @var int */
-    protected $countOnPages;
+    private $countItems;
+
+    /** @var int */
+    private $currentPage;
+
+    /** @var string */
+    private $statusPage;
 
     /**
+     * count items on one page
+     *
      * @param int $itemsOnPage
      *
      * @throws \InvalidArgumentException
@@ -40,12 +50,104 @@ class PaginationService
     /**
      * @return int
      */
-    public function getCountOnPages()
+    public function getItemsOnPage()
     {
-        return $this->countOnPages;
+        return $this->itemsOnPage;
     }
 
-    //public function
+    /**
+     * @param $countItems
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function setCountItems($countItems)
+    {
+        Assert::assert($countItems, 'countItems')->notEmpty()->int();
+
+        $this->countItems = $countItems;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountItems()
+    {
+        return $this->countItems;
+    }
+
+    /**
+     * @param $currentPage
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function setCurrentPage($currentPage)
+    {
+        Assert::assert($currentPage, 'currentPage')->notEmpty()->int();
+
+        $this->currentPage = $currentPage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->currentPage;
+    }
+
+    /**
+     * @return int
+     * @throws EmptyArgumentException
+     * @throws NoPageException
+     */
+    public function getOffset()
+    {
+        if (empty($this->itemsOnPage)) {
+            throw new EmptyArgumentException('Не задано значение аргумента: itemsOnPage');
+        }
+
+        if (empty($this->countItems)) {
+            throw new EmptyArgumentException('Не задано значение аргумента: countItems');
+        }
+
+        if (empty($this->currentPage)) {
+            throw new EmptyArgumentException('Не задано значение аргумента: currentPage');
+        }
+
+        if ($this->currentPage <= 0 || $this->currentPage > ceil($this->countItems / $this->itemsOnPage)) {
+            throw new NoPageException('Такой страницы не существует');
+        }
+
+        $offset = ($this->currentPage - 1) * $this->itemsOnPage;
+
+        if ($this->currentPage === 1) {
+            $this->statusPage = 'start';
+        } else {
+            $this->statusPage = 'middle';
+        }
+
+        if ($this->countItems < $this->itemsOnPage) {
+            $this->statusPage = 'end';
+        }
+
+        if ($this->countItems === $this->currentPage * $this->itemsOnPage) {
+            $this->statusPage = 'end';
+        }
+
+        return $offset;
+    }
+
+    /**
+     * Return page status : "start", "end", "middle"
+     * @return string
+     */
+    public function getStatusPage()
+    {
+        return $this->statusPage;
+    }
+}
+
+//public function
 //    Assert::assert($currentPage, 'currentPage')->notEmpty()->int();
 //    Assert::assert($postOnPage, 'postOnPage')->notEmpty()->int();
 //
@@ -78,4 +180,3 @@ class PaginationService
 //    $res['countPage'] = ceil($countArticles / $postOnPage);
 //
 //    return $res;
-}
