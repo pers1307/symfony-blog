@@ -7,42 +7,46 @@
                 <div class="col-md-10">
 
                     <div class="home-blog">
+                        {% for key, article in articles %}
 
-                        <div class="full-post">
-                            <a href="blog.html"><img src="{{ asset('bundles/framework/frontend/images/home/1/1.jpg') }}" class="post-thumb img-responsive" alt=""/></a>
-                            <div class="post-meta">
-                                <span class="post-author">Lesly Quintella</span>
-                                <span class="post-tags"><a href="#">Search Engine Optimization</a></span>
-                            </div>
-                            <h4><a href="blog.html">8 Essential Tools to Simplify SEO for Content Marketing</a></h4>
-                            <p>Finding a real star requires going beyond "Tell me about yourself." Here are the questions that will tell you what you really want to know.</p>
-                        </div>
-
-                        <div class="half-post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a href="blog.html"><img src="{{ asset('bundles/framework/frontend/images/home/1/2.jpg') }}" class="post-thumb img-responsive" alt=""/></a>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4><a href="blog.html">4 Elements You Need to Include in Your Online Marketing Campaigns</a></h4>
-                                    <div class="post-meta">
-                                        <span class="post-author">Lavonne Flynn</span>
-                                        <span class="post-tags"><a href="#">Online Marketing</a></span>
+                            {% if key == 2 %}
+                                <div class="half-post">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="/post/{{ article['article_id'] }}"><img src="{{ article['logo_path'] }}" class="post-thumb img-responsive" alt="{{ article['article_name'] }}"/></a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4><a href="/post/{{ article['article_id'] }}">{{ article['article_name'] }}</a></h4>
+                                            <div class="post-meta">
+                                                <span class="post-author">{{ article['author_name'] }}</span>
+                                                {#<span class="post-tags">{{ article['article_createdAt']['date'] }}</span>#}
+                                            </div>
+                                            <p>{{ article['article_announce'] }}</p>
+                                        </div>
                                     </div>
-                                    <p>Finding a real star requires going beyond "Tell me about yourself." Here are the questions that will tell you what you really</p>
                                 </div>
-                            </div>
-                        </div>
+                            {% else %}
+                                <div class="full-post">
+                                    <a href="/post/{{ article['article_id'] }}"><img src="{{ asset('bundles/framework/frontend/images/home/1/1.jpg') }}" class="post-thumb img-responsive" alt="{{ article['article_name'] }}"/></a>
+                                    <div class="post-meta">
+                                        <span class="post-author">{{ article['author_name'] }}</span>
+                                        {#<span class="post-tags">{{ article['article_createdAt'] }}</span>#}
+                                    </div>
+                                    <h4><a href="/post/{{ article['article_id'] }}">8 Essential Tools to Simplify SEO for Content Marketing</a></h4>
+                                    <p>Finding a real star requires going beyond "Tell me about yourself." Here are the questions that will tell you what you really want to know.</p>
+                                </div>
+                            {% endif %}
 
-                        <div class="full-post">
-                            <a href="blog.html"><img src="{{ asset('bundles/framework/frontend/images/home/1/5.jpg') }}" class="post-thumb img-responsive" alt=""/></a>
-                            <div class="post-meta">
-                                <span class="post-author">Sheena Geoffrey</span>
-                                <span class="post-tags"><a href="#">Tutorials on Marketing</a></span>
-                            </div>
-                            <h4><a href="blog.html">The Day After: 11 Things to Do After You Publish a Post</a></h4>
-                            <p>Finding a real star requires going beyond "Tell me about yourself." Here are the questions that will tell you what you really want to know.</p>
-                        </div>
+
+                            <li>
+                                <span class="text">{{ article['a_name'] }}</span>
+                                <small class="label label-info"><i class="fa fa-clock-o"></i> {{ article['a_createdAt'] }}</small>
+                                <div class="tools">
+                                    <a href="/backend/new_article/{{ article['a_id'] }}"><i class="fa fa-edit"></i></a>
+                                    <a href="/backend/delete_article/{{ article['a_id'] }}"><i class="fa fa-trash-o"></i></a>
+                                </div>
+                            </li>
+                        {% endfor %}
                     </div>
 
                     <div class="page_nav">

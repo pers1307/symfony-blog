@@ -57,6 +57,9 @@ class ArticleRepository extends EntityRepository
 
         $qb = $this->createQueryBuilder('article');
 
+        /**
+         * todo: непонятно, как вытащить значения только определенных полей
+         */
         $qb
             ->select('article', 'logo', 'author')
             ->leftJoin(

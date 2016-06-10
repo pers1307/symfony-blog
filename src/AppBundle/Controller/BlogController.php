@@ -21,6 +21,10 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class BlogController extends Controller
 {
     /**
+     * Как мне здесь сделать чтобы url для второй странице был /page2/ ?
+     * Пишу в правиле "/page{currentPage}/"
+     * не работает.
+     *
      * @Route("/{currentPage}", defaults={"currentPage" = 1}, name="homepage")
      */
     public function indexAction($currentPage)
@@ -29,8 +33,8 @@ class BlogController extends Controller
          * Провь плиз, не уверен, что я правильно сделал
          * эту тему с конфигами
          */
-        $pageConfig      = new PagerConfig();
-        $itemsOnMainPage = $pageConfig::PAGE_ON_MAIN;
+        $pageConfig        = new PagerConfig();
+        $itemsOnMainPage   = $pageConfig::PAGE_ON_MAIN;
 
         $articleRepository = $this->get('article_repository');
         $count             = $articleRepository->count();
@@ -61,9 +65,9 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/post/", name="post")
+     * @Route("/post/{postId}", name="post")
      */
-    public function postAction(Request $request)
+    public function postAction($postId)
     {
         return $this->render('frontend/post.html.twig', []);
     }
