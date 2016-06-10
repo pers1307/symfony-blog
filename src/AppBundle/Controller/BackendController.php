@@ -37,6 +37,9 @@ class BackendController extends Controller
          * Непонятно как избавится от этой копи пасты?
          * Потому что return должен производиться из контроллера,
          * как я понял
+         *
+         * 09.06.2016 пока не прикручу встроенный сервис авторизации
+         * придется с ним жить
          */
         if (is_null($this->autorizationService->getCurrentUserId())) {
             return $this->render('frontend/error.html.twig', [

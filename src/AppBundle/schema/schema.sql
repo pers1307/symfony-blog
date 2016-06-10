@@ -1,11 +1,10 @@
-SET FOREIGN_KEY_CHECKS=0;
-
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(50) NOT NULL,
   `authorId` int(10) unsigned NOT NULL,
+  `announce` text,
   `content` text NOT NULL,
   `logoId` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`,`authorId`,`createdAt`,`name`)

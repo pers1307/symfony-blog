@@ -149,6 +149,34 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    public function testSetGetAnnounce()
+    {
+        $announce = 'test';
+        $this->article->setAnnounce($announce);
+        $result = $this->article->getAnnounce();
+        $this->assertEquals($announce, $result);
+    }
+
+    public function testSetEmptyAnnounce()
+    {
+        try {
+            $this->article->setAnnounce(false);
+        } catch(InvalidArgumentException $e) {
+            return;
+        }
+
+        $this->fail('Something went wrong');
+    }
+
+    public function testSetDoubleAnnounce()
+    {
+        try {
+            $this->article->setAnnounce(10.66);
+        } catch(InvalidArgumentException $e) {
+            return;
+        }
+    }
+
     public function testSetGetLogoId()
     {
         $logoId = 10;

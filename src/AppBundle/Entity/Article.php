@@ -57,6 +57,12 @@ class Article
      * @var string
      * @ORM\Column(type="text")
      */
+    private $announce;
+
+    /**
+     * @var string
+     * @ORM\Column(type="text")
+     */
     private $content;
 
     /**
@@ -138,6 +144,29 @@ class Article
     public function getAuthorId()
     {
         return $this->authorId;
+    }
+
+    /**
+     * @param string $announce
+     *
+     * @return Article
+     * @throws \InvalidArgumentException
+     */
+    public function setAnnounce($announce)
+    {
+        Assert::assert($announce, 'announce')->notEmpty()->string();
+
+        $this->announce = $announce;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAnnounce()
+    {
+        return $this->announce;
     }
 
     /**
