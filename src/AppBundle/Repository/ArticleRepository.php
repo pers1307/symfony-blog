@@ -42,4 +42,38 @@ class ArticleRepository extends EntityRepository
 
         return $qb->getQuery()->getScalarResult();
     }
+
+    /**
+     * @param int $offset
+     * @param int $limit
+     *
+     * @return array
+     * @throws \InvalidArgumentException
+     */
+    public function getItemsLimitOffset($offset, $limit)
+    {
+        Assert::assert($limit, 'limit')->notEmpty()->int();
+        Assert::assert($offset, 'offset')->int();
+
+        $qb = $this->createQueryBuilder('article');
+
+        $qb
+            ->select('article', 'logo', 'author')
+            ->leftJoin(
+                'pers1307\blog\AppBundle\Entity\File',
+                'logo',
+                \Doctrine\ORM\Query\Expr\Join::WITH,
+                'article.logoId = logo.id'
+            )
+            ->leftJoin(
+                'pers1307\blog\AppBundle\Entity\Author',
+                'author',
+                \Doctrine\ORM\Query\Expr\Join::WITH,
+                'article.authorId = author.id'
+            )
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+
+        return $qb->getQuery()->getScalarResult();
+    }
 }

@@ -138,11 +138,15 @@ class PaginationService
     }
 
     /**
-     * Return page status : "start", "end", "middle"
-     * @return string
+     * Return page status : "start", "end", "middle", "null"
+     * @return string|null
      */
     public function getStatusPage()
     {
+        if (empty($this->statusPage)) {
+            return null;
+        }
+
         return $this->statusPage;
     }
 }
